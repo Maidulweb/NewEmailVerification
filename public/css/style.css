@@ -1,0 +1,64 @@
+/* ========
+   BASIC
+========== */
+ul li {
+    list-style: none;
+}
+/* ========
+   HEADER
+========== */
+
+/* TOP HEADER */
+.header {
+    height: 50px;
+    padding-top: 13px;
+    background: #e4e4e4;
+}
+.top-header-middle {
+    text-align: center;
+}
+.top-header-middle ul li {
+  display: inline-block;
+  padding-left: 10px;
+}
+.top-header-right {
+    text-align: right;
+}
+/* ========
+   MAIN MENU
+========== */
+.main-menu {
+    background: #c7c6c6;
+}
+.bg-light {
+    background-color: transparent !important;
+}
+/* ========
+   BASIC
+========== */
+.padd-60 {
+    padding: 60px 0;
+}
+.padd-40 {
+    padding: 40px 0;
+}
+.padd-20 {
+    padding: 20px 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* ========
+   FOOTER
+========== */
+.footer {
+    padding: 40px 0;
+    background: #e4e4e4;
+}
