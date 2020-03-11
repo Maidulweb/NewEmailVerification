@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\LoginRegister;
 use Illuminate\Support\Facades\Auth;
 
 class LoginRegisterController extends Controller
@@ -20,11 +20,12 @@ class LoginRegisterController extends Controller
             'password' => 'required',
         ]);
 
-        $newvariable = new User;
-        $newvariable->username = $request->username ;
-        $newvariable->email = $request->email ;
-        $newvariable->password = $request->password ;
-        $newvariable->save();
+        $data = [
+            'username' => $request->input('username'),
+            'email' => strtolower($request->input('email')),
+            'password' =>bcrypt($request->input('password')),
+        ];
+        LoginRegister::create($data);
         session()->flash('message', 'Successfully Register!');
         session()->flash('type', 'success');
         return redirect()->route('login');
@@ -36,7 +37,7 @@ class LoginRegisterController extends Controller
     }
     public function loginprocess (Request $request)
     {
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             return redirect()->route('index');
