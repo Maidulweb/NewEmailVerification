@@ -13,8 +13,12 @@
 
 Route::get('/', 'indexController@index')->name('index');
 
-Route::get('/register', 'LoginRegisterController@register')->name('register');
-Route::post('/register', 'LoginRegisterController@registerprocess');
+Route::get('/register', 'indexController@register')->name('register');
+Route::post('/register', 'indexController@registerprocess');
 
-Route::get('/login', 'LoginRegisterController@login')->name('login');
-Route::post('/login', 'LoginRegisterController@loginprocess');
+Route::get('/login', 'indexController@login')->name('login');
+Route::post('/login', 'indexController@loginprocess');
+
+Route::get('/verify/{token}', 'indexController@verifyEmail')->name('verify');
+
+
